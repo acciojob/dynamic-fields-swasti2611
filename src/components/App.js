@@ -4,8 +4,8 @@ import './../styles/App.css';
 
 const App = () => {
   const [input, setInput]=useState([{name:" ",age:" "}])
-  const handleClickAdd=(e)=>{
-     e.preventDefault()
+  const handleAddField=()=>{
+    
     setInput([...input,{name:" ",age:" "}])
   }
 
@@ -18,23 +18,24 @@ setInput(newinput)
                const newinput=input.filter((item,i)=>i!=index)
                setInput(newinput)
   }
-  const handleclickSubmit=(e)=>{
-    e.preventDefault()
+  const handleSubmit=()=>{
+    
     console.log(input)
   }
   return (
     <div>
-    <form>
+    
        {input.map((item, index) => (
-        <div>
+        <div className="box" key={index}>
           <input type="text" value={input.name} name="name" onChange={(e)=>handleChange(e,index)} placeholder="Name"/>
           <input type="text" value={input.name} name="age" onChange={(e)=>handleChange(e,index)} placeholder="Age"/>
-          <button onClick={()=>handleClickRemove(index)}>remove</button>
+          <button onClick={()=>handleClickRemove(index)}>Remove</button>
         </div>
       ))}
-      <button onClick={(e)=>handleClickAdd(e)}>Add More</button>
-      <button type="submit" onClick={(e)=>handleclickSubmit(e)}>Submit</button>
-      </form>
+      <div className="btn_boxs">
+        <button onClick={handleAddField}>Add More</button>
+        <button onClick={handleSubmit}>Submit</button>
+      </div>
     </div>
   )
 }
