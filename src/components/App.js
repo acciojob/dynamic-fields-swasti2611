@@ -24,7 +24,7 @@ setInput(newinput)
   }
   return (
     <div>
-    <form onSubmit={(e)=>handleclickSubmit(e)}>
+    <form>
        {input.map((item, index) => (
         <div>
           <input type="text" value={input.name} name="name" onChange={(e)=>handleChange(e,index)} placeholder="Name"/>
@@ -32,8 +32,8 @@ setInput(newinput)
           <button onClick={()=>handleClickRemove(index)}>remove</button>
         </div>
       ))}
-      <button onClick={(e)=>handleClickAdd(e)}>add</button>
-      <input type="submit" value="submit"></input>
+      <button onClick={(e)=>handleClickAdd(e)}>Add More</button>
+      <button type="submit" onClick={(e)=>handleclickSubmit(e)}>Submit</button>
       </form>
     </div>
   )
